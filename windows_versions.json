@@ -7,7 +7,7 @@
     {
       "version": "Windows 10",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows10.iso",
-      "notes": "This ISO contains both the x64 and x86"
+      "notes": "This ISO contains both the x64 and x32"
     }
   ]
 }
