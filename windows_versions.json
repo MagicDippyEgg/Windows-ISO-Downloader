@@ -40,6 +40,14 @@
     {
       "version": "Windows Vista x32",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsVista_x32.iso"
+    },
+    {
+      "version": "Windows XP x64",
+      "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsXP_x64.iso"
+    },
+    {
+      "version": "Windows XP x32",
+      "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsXP_x32.iso"
     }
   ]
 }
