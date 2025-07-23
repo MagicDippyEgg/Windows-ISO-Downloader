@@ -16,6 +16,14 @@
     {
       "version": "Windows 8.1 x32",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows8.1_x32.iso"
+    },
+    {
+      "version": "Windows 8 x64",
+      "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows8_x64.iso"
+    },
+    {
+      "version": "Windows 8 x32",
+      "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows8_x32.iso"
     }
   ]
 }
