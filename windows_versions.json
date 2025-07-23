@@ -11,11 +11,13 @@
     },
     {
       "version": "Windows 8.1 x64",
-      "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows8.1_x64.iso"
+      "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows8.1_x64.iso",
+	  "notes": "Will work soon"
     },
     {
       "version": "Windows 8.1 x32",
-      "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows8.1_x32.iso"
+      "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows8.1_x32.iso",
+	  "notes": "Will work soon"
     }
   ]
 }
