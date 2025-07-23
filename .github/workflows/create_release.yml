@@ -1,0 +1,39 @@
+name: Build and Release EXE
+
+on:
+  push:
+    tags:
+      - '*'   # Run on any tag push
+
+jobs:
+  build-and-release:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyinstaller
+
+      - name: Build EXE with PyInstaller
+        run: |
+          pyinstaller --onefile --noconsole --clean windows_downloader.py
+
+      - name: Rename EXE with version from tag
+        run: |
+          echo "Tag is ${{ github.ref_name }}"
+          mv dist/windows_downloader.exe dist/WindowsISODownloader_${{ github.ref_name }}.exe
+
+      - name: Create GitHub Release and upload EXE
+        uses: softprops/action-gh-release@v1
+        with:
+          files: dist/WindowsISODownloader_${{ github.ref_name }}.exe
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
