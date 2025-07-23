@@ -3,10 +3,12 @@
     {
       "version": "Windows 11",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows11.iso"
+	  "notes" : "The latest version of Windows"
     },
     {
       "version": "Windows 10",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows10.iso"
+	  "notes" : "This ISO contains both the x64 and x86"
     }
   ]
 }
