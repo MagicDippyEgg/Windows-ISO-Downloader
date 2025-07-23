@@ -2,51 +2,63 @@
   "versions": [
     {
       "version": "Windows 11",
+	  "type": "client",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows11.iso"
     },
     {
       "version": "Windows 10",
+	  "type": "client",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows10.iso",
       "notes": "This ISO contains both the x64 and x32"
     },
     {
       "version": "Windows 8.1 x64",
+	  "type": "client",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows8.1_x64.iso"
     },
     {
       "version": "Windows 8.1 x32",
+	  "type": "client",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows8.1_x32.iso"
     },
     {
       "version": "Windows 8 x64",
+	  "type": "client",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows8_x64.iso"
     },
     {
       "version": "Windows 8 x32",
+	  "type": "client",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows8_x32.iso"
     },
     {
       "version": "Windows 7 x64",
+	  "type": "client",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows7_x64.iso"
     },
     {
       "version": "Windows 7 x32",
+	  "type": "client",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows7_x32.iso"
     },
     {
       "version": "Windows Vista x64",
+	  "type": "client",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsVista_x64.iso"
     },
     {
       "version": "Windows Vista x32",
+	  "type": "client",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsVista_x32.iso"
     },
     {
       "version": "Windows XP x64",
+	  "type": "client",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsXP_x64.iso"
     },
     {
       "version": "Windows XP x32",
+	  "type": "client",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsXP_x32.iso"
     }
   ]
