@@ -152,19 +152,21 @@ class App(tk.Tk):
 
         v = self.current_display_versions[idx]
         self.selected_download_url = v.get("download_url")
+        selected_notes = v.get("notes", "No additional notes.") # Get the notes
 
         lines = [
             f"Version: {v.get('version', 'N/A')}",
-            f"Download URL: {v.get('download_url', 'N/A')}"
+            f"Download URL: {v.get('download_url', 'N/A')}",
+            f"Notes: {selected_notes}" # Add notes here
         ]
 
         self.show_details("\n".join(lines) + "\nFetching file size...")
         self.download_iso_btn.config(state=tk.DISABLED) # Temporarily disable while fetching size
         # Start a thread to fetch file size
-        threading.Thread(target=self._fetch_and_display_file_size, args=(self.selected_download_url, v.get('version', 'N/A')), daemon=True).start()
+        threading.Thread(target=self._fetch_and_display_file_size, args=(self.selected_download_url, v.get('version', 'N/A'), selected_notes), daemon=True).start()
 
 
-    def _fetch_and_display_file_size(self, url, version_name):
+    def _fetch_and_display_file_size(self, url, version_name, notes):
         """Fetches the file size and updates the details panel."""
         size_str = "N/A"
         can_download = False # Flag to control button state
@@ -180,14 +182,15 @@ class App(tk.Tk):
             size_str = f"Error fetching size: {e}"
 
         # Update the details text and button state on the main thread
-        self.after(0, self._update_details_with_size, version_name, url, size_str, can_download)
+        self.after(0, self._update_details_with_size, version_name, url, size_str, notes, can_download)
 
-    def _update_details_with_size(self, version_name, url, size_str, can_download):
+    def _update_details_with_size(self, version_name, url, size_str, notes, can_download):
         """Updates the details text area with file size and re-enables/disables button."""
         lines = [
             f"Version: {version_name}",
             f"Download URL: {url}",
-            f"File Size: {size_str}"
+            f"File Size: {size_str}",
+            f"Notes: {notes}" # Add notes here
         ]
         self.show_details("\n".join(lines))
         # Re-enable download button based on whether a URL was found AND size was successfully determined
