@@ -1,0 +1,12 @@
+{
+  "versions": [
+    {
+      "version": "Windows 11",
+      "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows11.iso"
+    },
+    {
+      "version": "Windows 10",
+      "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows10.iso"
+    }
+  ]
+}
