@@ -32,6 +32,14 @@
     {
       "version": "Windows 7 x32",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows7_x32.iso"
+    },
+    {
+      "version": "Windows Vista x64",
+      "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsVista_x64.iso"
+    },
+    {
+      "version": "Windows Vista x32",
+      "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsVista_x32.iso"
     }
   ]
 }
