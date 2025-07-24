@@ -9,13 +9,13 @@
       "version": "Windows Server 2022",
 	  "type": "server",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsServer2022.iso",
-	  "notes": "x64"
+	  "notes": "This build of Windows only works on x64"
     },
     {
       "version": "Windows Server 2019",
 	  "type": "server",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsServer2019.iso",
-	  "notes": "x64"
+	  "notes": "This build of Windows only works on x64"
     },
     {
       "version": "Windows 10",
