@@ -5,7 +5,7 @@ import threading
 import urllib.request
 import json
 import os
-import math # Import math for size formatting
+import math
 
 # URL for the Windows versions JSON file
 WINDOWS_VERSIONS_URL = "https://magicdippyegg.github.io/Windows-ISO-Downloader/windows_versions.json"
@@ -18,37 +18,32 @@ class App(tk.Tk):
         self.style = ttk.Style(self)
         self.style.configure('Treeview', rowheight=24)
 
-        # Layout: progress at top, then search, then list/details below
-        self.rowconfigure(0, weight=0) # For progress bar
-        self.rowconfigure(1, weight=0) # For search bar
-        self.rowconfigure(2, weight=1) # For main content
+        self.rowconfigure(0, weight=0)
+        self.rowconfigure(1, weight=0)
+        self.rowconfigure(2, weight=1)
         self.columnconfigure(0, weight=1)
         self.columnconfigure(1, weight=2)
 
-        # Progress bar for loading versions (spans both columns)
         self.load_progress = ttk.Progressbar(self, mode='indeterminate')
         self.load_progress.grid(row=0, column=0, columnspan=2, sticky='ew', padx=10, pady=10)
 
-        # Search bar frame
         search_frame = ttk.Frame(self)
         search_frame.grid(row=1, column=0, columnspan=2, sticky='ew', padx=10, pady=(0, 10))
-        search_frame.columnconfigure(0, weight=1) # Search entry
-        search_frame.columnconfigure(1, weight=0) # Search button
+        search_frame.columnconfigure(0, weight=1)
+        search_frame.columnconfigure(1, weight=0)
 
         self.search_entry = ttk.Entry(search_frame)
         self.search_entry.grid(row=0, column=0, sticky='ew', padx=(0, 5))
-        self.search_entry.bind("<Return>", self.perform_search_event) # Bind Enter key
+        self.search_entry.bind("<Return>", self.perform_search_event)
 
         self.search_button = ttk.Button(search_frame, text="Search", command=self.search_versions)
         self.search_button.grid(row=0, column=1, sticky='e')
 
-        # Frame to hold version list and scrollbar
         list_frame = ttk.Frame(self)
         list_frame.grid(row=2, column=0, sticky="nsew", padx=10, pady=5)
         list_frame.rowconfigure(0, weight=1)
         list_frame.columnconfigure(0, weight=1)
 
-        # Version list on left - only "Version" column now
         cols = ("Version",)
         self.vers_list = ttk.Treeview(list_frame, columns=cols, show="headings", selectmode='browse')
         for col in cols:
@@ -57,39 +52,35 @@ class App(tk.Tk):
         self.vers_list.grid(row=0, column=0, sticky="nsew")
         self.vers_list.bind("<<TreeviewSelect>>", self.on_select)
 
-        # Scrollbar for version list
         list_scroll = ttk.Scrollbar(list_frame, orient="vertical", command=self.vers_list.yview)
         list_scroll.grid(row=0, column=1, sticky="ns")
         self.vers_list.configure(yscrollcommand=list_scroll.set)
 
-        # Details panel on right
         detail_frame = ttk.Frame(self, padding=(10,10))
         detail_frame.grid(row=2, column=1, sticky="nsew")
         detail_frame.columnconfigure(0, weight=1)
         detail_frame.rowconfigure(1, weight=1)
 
-        # Details text
         self.details = ScrolledText(detail_frame, wrap=tk.WORD, height=15)
         self.details.grid(row=0, column=0, sticky="nsew")
         self.details.configure(state=tk.DISABLED)
 
-        # Download progress bar under details
         self.download_progress = ttk.Progressbar(detail_frame, mode='determinate', maximum=100)
         self.download_progress.grid(row=1, column=0, sticky='ew', pady=(5,10))
         self.download_progress.grid_remove()
 
-        # Buttons
         btn_frame = ttk.Frame(detail_frame)
         btn_frame.grid(row=2, column=0, pady=(0,10), sticky="ew")
-        btn_frame.columnconfigure(0, weight=1) # Only one button now
+        btn_frame.columnconfigure(0, weight=1)
 
         self.download_iso_btn = ttk.Button(
             btn_frame, text="Download ISO", command=self.download_iso, state=tk.DISABLED)
         self.download_iso_btn.grid(row=0, column=0, sticky="ew")
 
-        self.all_versions = [] # Store the complete list of versions
-        self.current_display_versions = [] # Store the currently filtered/displayed versions
-        self.selected_download_url = None # To store the URL of the selected ISO
+        self.all_versions = []
+        self.current_display_versions = []
+        self.selected_download_url = None
+        self.current_selection_id = None
 
         threading.Thread(target=self.load_versions, daemon=True).start()
 
@@ -99,8 +90,8 @@ class App(tk.Tk):
             self.load_progress.start(10)
             resp = urllib.request.urlopen(WINDOWS_VERSIONS_URL)
             data = json.load(resp)
-            self.all_versions = data.get("versions", []) # Get the list of versions
-            self.update_version_list(self.all_versions) # Display all initially
+            self.all_versions = data.get("versions", [])
+            self.update_version_list(self.all_versions)
         except Exception as e:
             messagebox.showerror("Error", f"Failed to load Windows versions:\n{e}")
         finally:
@@ -111,97 +102,104 @@ class App(tk.Tk):
         """Clears and repopulates the Treeview with the given list of versions."""
         for item in self.vers_list.get_children():
             self.vers_list.delete(item)
-        self.current_display_versions = versions_to_display # Update the list of currently displayed versions
+        self.current_display_versions = versions_to_display
         for idx, v in enumerate(self.current_display_versions):
-            # Only insert the version name into the Treeview
-            self.vers_list.insert("", "end", iid=idx, values=(v.get("version", "N/A"),))
+            self.vers_list.insert("", "end", iid=str(idx), values=(v.get("version", "N/A"),))
 
     def perform_search_event(self, event):
-        """Called when Enter key is pressed in the search entry."""
         self.search_versions()
 
     def search_versions(self):
         """Filters the version list based on the search term."""
         search_term = self.search_entry.get().strip().lower()
         if not search_term:
-            self.update_version_list(self.all_versions) # Show all if search is empty
-            return
+            self.update_version_list(self.all_versions)
+        else:
+            filtered_versions = [
+                v for v in self.all_versions
+                if search_term in v.get("version", "").lower()
+            ]
+            self.update_version_list(filtered_versions)
 
-        filtered_versions = [
-            v for v in self.all_versions
-            if search_term in v.get("version", "").lower()
-        ]
-        self.update_version_list(filtered_versions)
-        self.show_details("") # Clear details when search changes
-        # Disable button until a new selection is made
+        self.show_details("")
         self.download_iso_btn.config(state=tk.DISABLED)
+        self.selected_download_url = None
+        self.current_selection_id = None
 
     def on_select(self, ev):
         """Handles selection of a version from the list."""
         sel = self.vers_list.selection()
         if not sel:
-            # Clear details and disable button if nothing is selected
             self.show_details("")
             self.download_iso_btn.config(state=tk.DISABLED)
             self.selected_download_url = None
+            self.current_selection_id = None
             return
 
-        idx = int(sel[0])
+        selected_iid = sel[0]
+        self.current_selection_id = selected_iid
+
+        idx = int(selected_iid)
         if idx >= len(self.current_display_versions):
-            return # Index out of bounds if selection was made on old list
+            return
 
         v = self.current_display_versions[idx]
         self.selected_download_url = v.get("download_url")
-        selected_notes = v.get("notes", "No additional notes.") # Get the notes
+        version_name = v.get("version", "N/A")
+        selected_notes = v.get("notes", "No additional notes.")
 
-        lines = [
-            f"Version: {v.get('version', 'N/A')}",
-            f"Download URL: {v.get('download_url', 'N/A')}",
-            f"Notes: {selected_notes}" # Add notes here
+        initial_lines = [
+            f"Version: {version_name}",
+            f"Download URL: {self.selected_download_url if self.selected_download_url else 'N/A'}",
+            f"File Size: Fetching file size...",
+            f"Notes: {selected_notes}"
         ]
+        self.show_details("\n".join(initial_lines))
+        self.download_iso_btn.config(state=tk.DISABLED)
 
-        self.show_details("\n".join(lines) + "\nFetching file size...")
-        self.download_iso_btn.config(state=tk.DISABLED) # Temporarily disable while fetching size
-        # Start a thread to fetch file size
-        threading.Thread(target=self._fetch_and_display_file_size, args=(self.selected_download_url, v.get('version', 'N/A'), selected_notes), daemon=True).start()
+        threading.Thread(target=self._fetch_and_display_file_size,
+                         args=(self.selected_download_url, version_name, selected_notes, selected_iid),
+                         daemon=True).start()
 
-
-    def _fetch_and_display_file_size(self, url, version_name, notes):
+    def _fetch_and_display_file_size(self, url, version_name, notes, selection_id_at_call):
         """Fetches the file size and updates the details panel."""
         size_str = "N/A"
-        can_download = False # Flag to control button state
+        can_download = False
         try:
             size_bytes = self._get_file_size(url)
             if size_bytes is not None:
                 size_str = self._format_bytes(size_bytes)
-                can_download = True # Only enable if size is successfully fetched
+                can_download = True
             else:
                 size_str = "Could not determine file size (URL might be invalid or unreachable)."
         except Exception as e:
             print(f"Error fetching size for {url}: {e}")
             size_str = f"Error fetching size: {e}"
 
-        # Update the details text and button state on the main thread
-        self.after(0, self._update_details_with_size, version_name, url, size_str, notes, can_download)
+        self.after(0, self._update_details_with_size, version_name, url, size_str, notes, can_download, selection_id_at_call)
 
-    def _update_details_with_size(self, version_name, url, size_str, notes, can_download):
+    def _update_details_with_size(self, version_name, url, size_str, notes, can_download, selection_id_at_call):
         """Updates the details text area with file size and re-enables/disables button."""
+        if self.current_selection_id != selection_id_at_call:
+            return
+
         lines = [
             f"Version: {version_name}",
-            f"Download URL: {url}",
+            f"Download URL: {url if url else 'N/A'}",
             f"File Size: {size_str}",
-            f"Notes: {notes}" # Add notes here
+            f"Notes: {notes}"
         ]
         self.show_details("\n".join(lines))
-        # Re-enable download button based on whether a URL was found AND size was successfully determined
         self.download_iso_btn.config(state=tk.NORMAL if self.selected_download_url and can_download else tk.DISABLED)
 
 
     def _get_file_size(self, url):
         """Attempts to get the Content-Length of a URL using a HEAD request."""
+        if not url:
+            return None
         try:
             req = urllib.request.Request(url, method='HEAD')
-            with urllib.request.urlopen(req) as response:
+            with urllib.request.urlopen(req, timeout=5) as response:
                 content_length = response.headers.get('Content-Length')
                 if content_length:
                     return int(content_length)
@@ -243,13 +241,13 @@ class App(tk.Tk):
         if not path:
             return
 
-        # Show determinate progress bar
         self.download_progress.grid()
         self.download_progress['value'] = 0
-        # Disable all action buttons during download
+        # Disable all action buttons and the version list during download
         self.download_iso_btn.config(state=tk.DISABLED)
         self.search_button.config(state=tk.DISABLED)
         self.search_entry.config(state=tk.DISABLED)
+        self.vers_list.config(selectmode='none') # Disable selection on Treeview
 
         threading.Thread(target=self._download_thread, args=(self.selected_download_url, path), daemon=True).start()
 
@@ -268,18 +266,18 @@ class App(tk.Tk):
         except Exception as e:
             messagebox.showerror("Error", f"Download failed:\n{e}")
         finally:
-            # Hide download progress and restore buttons based on current selection
             self.download_progress.grid_remove()
-            # Re-enable button based on current selection if any
-            sel = self.vers_list.selection()
-            if sel:
-                # Re-trigger on_select to re-evaluate button state
-                self.on_select(None) # Pass None as event as we are not reacting to a real event
-            else:
-                self.download_iso_btn.config(state=tk.DISABLED)
-
+            # Re-enable the version list and other controls
+            self.vers_list.config(selectmode='browse') # Re-enable selection on Treeview
             self.search_button.config(state=tk.NORMAL)
             self.search_entry.config(state=tk.NORMAL)
+
+            # Restore download button based on current selection
+            sel = self.vers_list.selection()
+            if sel:
+                self.on_select(None) # Re-trigger on_select to refresh button state
+            else:
+                self.download_iso_btn.config(state=tk.DISABLED)
 
 
 if __name__ == "__main__":
