@@ -85,6 +85,6 @@
       "version": "Windows NT 4.0",
 	  "type": "client",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsNT4.0.iso"
-    },
+    }
   ]
 }
