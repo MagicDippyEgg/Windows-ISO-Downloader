@@ -65,6 +65,11 @@
       "version": "Windows 2000",
 	  "type": "client",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows2000.iso"
+    },
+    {
+      "version": "Windows ME",
+	  "type": "client",
+      "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsME.iso"
     }
   ]
 }
