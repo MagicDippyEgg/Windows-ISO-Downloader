@@ -100,6 +100,11 @@
       "version": "Windows NT 3.5",
 	  "type": "client",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsNT3.5.iso"
+    },
+    {
+      "version": "Windows 3.1",
+	  "type": "client",
+      "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows3.1.iso"
     }
   ]
 }
