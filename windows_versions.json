@@ -12,6 +12,12 @@
 	  "notes": "x64"
     },
     {
+      "version": "Windows Server 2019",
+	  "type": "server",
+      "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsServer2019.iso",
+	  "notes": "x64"
+    },
+    {
       "version": "Windows 10",
 	  "type": "client",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows10.iso",
