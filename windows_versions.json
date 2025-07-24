@@ -18,6 +18,12 @@
 	  "notes": "This build of Windows only works on x64"
     },
     {
+      "version": "Windows Server 2016",
+	  "type": "server",
+      "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsServer2016.iso",
+	  "notes": "This build of Windows only works on x64"
+    },
+    {
       "version": "Windows 10",
 	  "type": "client",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows10.iso",
