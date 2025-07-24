@@ -75,6 +75,11 @@
       "version": "Windows 98 SE",
 	  "type": "client",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows98SE.iso"
+    },
+    {
+      "version": "Windows 98 FE",
+	  "type": "client",
+      "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows98FE.iso"
     }
   ]
 }
