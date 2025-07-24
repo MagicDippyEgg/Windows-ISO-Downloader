@@ -62,6 +62,12 @@
       "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows8_x32.iso"
     },
     {
+      "version": "Windows Server 2008 R2",
+	  "type": "server",
+      "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsServer2008R2.iso",
+	  "notes": "This build of Windows only works on x64"
+    },
+    {
       "version": "Windows 7 x64",
 	  "type": "client",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows7_x64.iso"
