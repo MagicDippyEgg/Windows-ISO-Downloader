@@ -78,6 +78,16 @@
       "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows7_x32.iso"
     },
     {
+      "version": "Windows Server 2008 x64",
+	  "type": "server",
+      "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsServer2008_x64.iso"
+    },
+    {
+      "version": "Windows Server 2008 x32",
+	  "type": "server",
+      "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsServer2008_x32.iso"
+    },
+    {
       "version": "Windows Vista x64",
 	  "type": "client",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsVista_x64.iso"
