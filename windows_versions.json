@@ -30,6 +30,12 @@
       "notes": "This ISO contains both the x64 and x32"
     },
     {
+      "version": "Windows Server 2012 R2",
+	  "type": "server",
+      "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsServer2012R2.iso",
+	  "notes": "This build of Windows only works on x64"
+    },
+    {
       "version": "Windows 8.1 x64",
 	  "type": "client",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows8.1_x64.iso"
