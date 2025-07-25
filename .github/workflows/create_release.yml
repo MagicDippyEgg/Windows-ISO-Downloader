@@ -24,7 +24,7 @@ jobs:
 
       - name: Build EXE with PyInstaller
         run: |
-          pyinstaller --onefile --noconsole --icon=icon.ico --clean windows_downloader.py
+          pyinstaller --onefile --noconsole --clean windows_downloader.py
 
       - name: Rename EXE with version from tag
         run: |
