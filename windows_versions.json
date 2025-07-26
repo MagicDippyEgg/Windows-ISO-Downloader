@@ -98,6 +98,18 @@
       "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsVista_x32.iso"
     },
     {
+      "version": "Windows Server 2003 R2 x64",
+	  "type": "server",
+      "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsServer2003R2_x64.iso",
+	  "notes": "To use this version of Windows Server you must first install Windows Server 2003"
+    },
+    {
+      "version": "Windows Server 2003 R2 x32",
+	  "type": "server",
+      "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsServer2003R2_x32.iso",
+	  "notes": "To use this version of Windows Server you must first install Windows Server 2003"
+    },
+    {
       "version": "Windows Server 2003 x64",
 	  "type": "server",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsServer2003_x64.iso"
