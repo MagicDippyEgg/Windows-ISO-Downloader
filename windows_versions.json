@@ -118,14 +118,14 @@
       "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsXP_x32.iso"
     },
     {
-      "version": "Windows 2000",
-	  "type": "client",
-      "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows2000.iso"
-    },
-    {
       "version": "Windows ME",
 	  "type": "client",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsME.iso"
+    },
+    {
+      "version": "Windows 2000",
+	  "type": "client",
+      "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows2000.iso"
     },
     {
       "version": "Windows 98 SE",
