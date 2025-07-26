@@ -62,6 +62,12 @@
       "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows8_x32.iso"
     },
     {
+      "version": "Windows Thin PC",
+	  "type": "client",
+      "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsThinPC.iso",
+	  "notes": "This build of Windows only works on x32"
+    },
+    {
       "version": "Windows Server 2008 R2",
 	  "type": "server",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsServer2008R2.iso",
