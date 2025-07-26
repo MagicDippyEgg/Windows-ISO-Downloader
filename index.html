@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Windows ISO Downloader</title>
+  <link rel="icon" type="image/png" href="icon.png" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #181a1b;
+      color: #e6e6e6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      align-items: center;
+      padding: 2rem 1rem;
+    }
+    header {
+      max-width: 700px;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    header h1 {
+      font-weight: 700;
+      font-size: 2.75rem;
+      color: #0078D7;
+      margin-bottom: 0.2rem;
+      user-select: none;
+    }
+    header p {
+      font-size: 1.25rem;
+      color: #a0a0a0;
+      user-select: none;
+    }
+    main {
+      max-width: 700px;
+      width: 100%;
+    }
+    section {
+      background: #222425;
+      border-radius: 10px;
+      padding: 1.75rem 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.6);
+    }
+    section h2 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      color: #0078D7;
+      user-select: none;
+    }
+    section p {
+      line-height: 1.5;
+      font-size: 1.05rem;
+      color: #ccc;
+      margin-bottom: 1rem;
+    }
+    ul {
+      list-style: inside disc;
+      margin: 0;
+      padding-left: 1rem;
+      color: #b0b0b0;
+      font-size: 1rem;
+    }
+    ul li {
+      margin-bottom: 0.55rem;
+      user-select: none;
+    }
+    a {
+      color: #0078D7;
+      text-decoration: none;
+    }
+    a:hover,
+    a:focus {
+      text-decoration: underline;
+      outline: none;
+    }
+    .btn {
+      display: inline-block;
+      background-color: #0078D7;
+      color: #181a1b;
+      font-weight: 700;
+      font-size: 1.15rem;
+      padding: 0.85rem 2.2rem;
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s ease;
+      border: none;
+      margin-top: 0.6rem;
+      text-decoration: none;
+    }
+    .btn:hover,
+    .btn:focus {
+      background-color: #005a9e;
+      outline: none;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .gallery img {
+      width: 180px;
+      height: auto;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.8);
+      user-select: none;
+      transition: transform 0.15s ease;
+    }
+    .gallery img:focus,
+    .gallery img:hover {
+      transform: scale(1.05);
+      outline: 2px solid #0078D7;
+    }
+    #modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(24, 26, 27, 0.95);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    #modal[aria-hidden="false"] {
+      display: flex;
+    }
+    #modal-img {
+      max-width: 90vw;
+      max-height: 80vh;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #0078D7;
+      user-select: none;
+      pointer-events: none;
+    }
+    #modal-close {
+      position: fixed;
+      top: 1.5rem;
+      right: 1.5rem;
+      font-size: 3rem;
+      color: #0078D7;
+      background: none;
+      border: none;
+      cursor: pointer;
+      user-select: none;
+      transition: color 0.2s ease;
+    }
+    #modal-close:hover,
+    #modal-close:focus {
+      color: #005a9e;
+      outline: none;
+    }
+    @media (max-width: 460px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      .gallery img {
+        width: 100%;
+      }
+      section {
+        padding: 1.25rem 1.5rem;
+      }
+      .btn {
+        width: 100%;
+        padding: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Windows ISO Downloader</h1>
+    <p class="tagline">Access Windows ISO files from various versions.</p>
+  </header>
+
+  <main>
+    <section class="about">
+      <h2>About this Downloader</h2>
+      <p>
+        Download Windows ISO files covering a wide range of versions.
+      </p>
+      <ul>
+        <li>Includes many Windows versions across different years</li>
+        <li>Simple interface for easy downloading</li>
+        <li>Source code available on <a href="https://github.com/MagicDippyEgg/Windows-ISO-Downloader" target="_blank" rel="noopener" style="color:#0078D7;">GitHub</a></li>
+      </ul>
+    </section>
+
+    <section class="download">
+      <h2>Download the Tool</h2>
+      <p>
+        Get the latest release from the GitHub releases page:
+      </p>
+      <a href="https://github.com/MagicDippyEgg/Windows-ISO-Downloader/releases" target="_blank" rel="noopener" class="btn">
+        View Releases
+      </a>
+    </section>
+
+    <section class="screenshots">
+      <h2>Screenshots</h2>
+      <div class="gallery">
+        <img src="Screenshot1.png" alt="Main window" tabindex="0" />
+        <img src="Screenshot2.png" alt="Version selected" tabindex="0" />
+        <img src="Screenshot3.png" alt="Download progress" tabindex="0" />
+      </div>
+    </section>
+  </main>
+
+  <div id="modal" aria-hidden="true" role="dialog" tabindex="-1">
+    <img id="modal-img" alt="Enlarged screenshot" />
+    <button id="modal-close" aria-label="Close">&times;</button>
+  </div>
+
+  <script>
+    const modal = document.getElementById("modal");
+    const modalImg = document.getElementById("modal-img");
+    const modalClose = document.getElementById("modal-close");
+
+    document.querySelectorAll(".gallery img").forEach(img => {
+      img.addEventListener("click", () => {
+        modalImg.src = img.src;
+        modal.style.display = "flex";
+        modal.setAttribute("aria-hidden", "false");
+        modalClose.focus();
+      });
+      img.addEventListener("keypress", e => {
+        if (e.key === "Enter") img.click();
+      });
+    });
+
+    function closeModal() {
+      modal.style.display = "none";
+      modalImg.src = "";
+      modal.setAttribute("aria-hidden", "true");
+    }
+
+    modalClose.addEventListener("click", closeModal);
+    modal.addEventListener("click", e => {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape" && modal.style.display === "flex") closeModal();
+    });
+  </script>
+</body>
+</html>
