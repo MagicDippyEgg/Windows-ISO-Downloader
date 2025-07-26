@@ -98,6 +98,16 @@
       "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsVista_x32.iso"
     },
     {
+      "version": "Windows Server 2003 x64",
+	  "type": "server",
+      "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsServer2003_x64.iso"
+    },
+    {
+      "version": "Windows Server 2003 x32",
+	  "type": "server",
+      "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsServer2003_x32.iso"
+    },
+    {
       "version": "Windows XP x64",
 	  "type": "client",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsXP_x64.iso"
