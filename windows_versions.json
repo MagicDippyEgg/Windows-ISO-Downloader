@@ -30,6 +30,16 @@
       "notes": "This ISO contains both x64 and x32"
     },
     {
+      "version": "Windows 10 x64",
+	  "type": "client",
+      "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows10_x64.iso"
+    },
+    {
+      "version": "Windows 10 x32",
+	  "type": "client",
+      "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows10_x32.iso"
+    },
+    {
       "version": "Windows Server 2012 R2",
 	  "type": "server",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsServer2012R2.iso",
