@@ -24,10 +24,10 @@
 	  "notes": "This build of Windows only works on x64"
     },
     {
-      "version": "Windows 10",
+      "version": "Windows 10 x86",
 	  "type": "client",
-      "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows10.iso",
-      "notes": "This ISO contains both the x64 and x32"
+      "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows10_x86.iso",
+      "notes": "This ISO contains both x64 and x32"
     },
     {
       "version": "Windows Server 2012 R2",
