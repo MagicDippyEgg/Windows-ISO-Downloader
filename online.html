@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Magic Dippy Egg's ISO Downloader</title>
+  <link rel="icon" type="image/png" href="icon.png">
+  <style>
+    body {
+      background-color: #111;
+      color: #eee;
+      font-family: monospace;
+      margin: 0;
+      padding: 1rem;
+      position: relative; /* Needed for absolute positioning of the back button */
+    }
+    h1 {
+      text-align: center;
+      color: #6cf;
+    }
+    .controls-container {
+      display: flex;
+      flex-direction: column; /* Stack elements vertically on small screens */
+      gap: 10px; /* Space between elements */
+      margin: 1rem 0;
+      align-items: center; /* Center items horizontally */
+    }
+    @media (min-width: 600px) { /* Adjust for larger screens */
+        .controls-container {
+            flex-direction: row; /* Arrange horizontally */
+            justify-content: center; /* Center the group of elements */
+        }
+    }
+    input[type="text"] {
+      max-width: 400px; /* Limit max width for search input */
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0.5rem;
+      border: 1px solid #444;
+      background-color: #222;
+      color: #eee;
+      border-radius: 4px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem; /* Space above table */
+    }
+    th, td {
+      padding: 0.5rem;
+      text-align: left;
+      border-bottom: 1px solid #444;
+      vertical-align: top; /* Align content to the top in cells */
+    }
+    th {
+      background-color: #222;
+      color: #6cf;
+    }
+    tr:hover {
+      background-color: #222;
+    }
+    .download-group {
+        display: flex; /* Use flexbox to put items next to each other */
+        align-items: center; /* Vertically align items */
+        gap: 8px; /* Space between button and size */
+        flex-wrap: wrap; /* Allow wrapping on very small screens */
+    }
+    .button {
+      background-color: #444;
+      color: #6cf;
+      border: none;
+      padding: 0.3rem 0.5rem;
+      cursor: pointer;
+      border-radius: 4px;
+      text-decoration: none; /* For anchor tags */
+      display: inline-block; /* For better padding/sizing */
+      white-space: nowrap; /* Prevent button text from wrapping */
+    }
+    .button:hover {
+      background-color: #666;
+    }
+
+    /* Styles for the back button */
+    .back-button {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background-color: #444;
+      color: #6cf;
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      border-radius: 4px;
+      text-decoration: none; /* Ensure it looks like a link */
+      font-size: 0.9em;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-button:hover {
+      background-color: #666;
+    }
+
+    /* Adjust padding for body to ensure button isn't covered by content */
+    body {
+        padding-top: 3rem; /* Make space for the fixed back button */
+    }
+  </style>
+</head>
+<body>
+  <!-- Back button added here -->
+  <a href="index.html" class="back-button">&larr; Back to Home</a>
+
+  <h1>Magic Dippy Egg's ISO Downloader</h1>
+  <div class="controls-container">
+    <input type="text" id="searchInput" placeholder="Search for a Windows version..." onkeyup="filterVersions()">
+    <button class="button" onclick="loadVersions()">Refresh List</button>
+  </div>
+
+  <table id="versionTable">
+    <thead>
+      <tr>
+        <th>Version</th>
+        <th>Notes</th>
+        <th>Download</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td colspan="3">Loading Windows versions...</td></tr>
+    </tbody>
+  </table>
+
+  <script>
+    const WINDOWS_VERSIONS_URL = "https://magicdippyegg.github.io/Windows-ISO-Downloader/windows_versions.json";
+    let allVersions = [];
+
+    async function renderVersions(versions) {
+        const tableBody = document.querySelector('#versionTable tbody');
+        tableBody.innerHTML = '';
+
+        if (versions.length === 0) {
+            tableBody.innerHTML = '<tr><td colspan="3">No versions found.</td></tr>';
+            return;
+        }
+
+        for (const v of versions) {
+            const row = document.createElement('tr');
+            const notesText = v.notes ? v.notes : '';
+
+            row.innerHTML = `
+                <td>${v.version || "N/A"}</td>
+                <td>${notesText}</td>
+                <td class="download-cell"></td>
+            `;
+            tableBody.appendChild(row);
+
+            const downloadCell = row.querySelector('.download-cell');
+            const url = v.download_url;
+
+            if (url) {
+                downloadCell.innerHTML = `
+                    <div class="download-group">
+                        <a href="${url}" target="_blank" class="button">Download ISO</a>
+                    </div>
+                `;
+            } else {
+                downloadCell.innerHTML = 'N/A';
+            }
+        }
+    }
+
+    function filterVersions() {
+        const searchTerm = document.getElementById('searchInput').value.trim().toLowerCase();
+        if (!searchTerm) {
+            renderVersions(allVersions);
+        } else {
+            const filteredVersions = allVersions.filter(
+                v => v.version && v.version.toLowerCase().includes(searchTerm)
+            );
+            renderVersions(filteredVersions);
+        }
+    }
+
+    async function loadVersions() {
+        const tableBody = document.querySelector('#versionTable tbody');
+        tableBody.innerHTML = '<tr><td colspan="3">Loading Windows versions...</td></tr>';
+
+        try {
+            const res = await fetch(WINDOWS_VERSIONS_URL);
+            if (!res.ok) {
+                throw new Error(`HTTP error! status: ${res.status}`);
+            }
+            const data = await res.json();
+            allVersions = data.versions || [];
+            renderVersions(allVersions);
+        } catch (e) {
+            tableBody.innerHTML = `<tr><td colspan="3">Failed to load Windows versions: ${e.message}</td></tr>`;
+            console.error("Error loading versions:", e);
+            allVersions = [];
+        }
+    }
+
+    // Initial load when the page loads
+    loadVersions();
+  </script>
+</body>
+</html>
