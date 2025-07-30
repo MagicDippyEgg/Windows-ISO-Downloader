@@ -206,6 +206,11 @@
       "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows2.03.iso"
     },
     {
+      "version": "Windows 1.02",
+	  "type": "client",
+      "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows1.02.iso"
+    },
+    {
       "version": "Windows 1.01",
 	  "type": "client",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows1.01.iso"
