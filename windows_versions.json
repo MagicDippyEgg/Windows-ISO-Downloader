@@ -191,6 +191,12 @@
       "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsNT3.5.iso"
     },
     {
+      "version": "Windows 3.2",
+	  "type": "client",
+      "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows3.2.iso",
+	  "notes": "This version of Windows is exclusive to the Chinese Market"
+    },
+    {
       "version": "Windows 3.1",
 	  "type": "client",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows3.1.iso"
