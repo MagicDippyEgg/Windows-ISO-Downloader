@@ -24,6 +24,16 @@
 	  "notes": "This build of Windows only works on x64"
     },
     {
+      "version": "Windows 10 Enterprise LTSB 2016 x64",
+	  "type": "client",
+      "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows10EnterpriseLTSB2016_x64.iso"
+    },
+    {
+      "version": "Windows 10 Enterprise LTSB 2016 x32",
+	  "type": "client",
+      "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows10EnterpriseLTSB2016_x32.iso"
+    },
+    {
       "version": "Windows 10 Enterprise LTSB 2015 x64",
 	  "type": "client",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows10EnterpriseLTSB2015_x64.iso"
