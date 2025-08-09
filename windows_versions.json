@@ -1,5 +1,10 @@
 {
   "versions": [
+     {
+      "version": "Windows 11 Enterprise 2024 LTSC",
+	  "type": "client",
+      "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows11EnterpriseLTSC2024.iso"
+    },
     {
       "version": "Windows 11",
 	  "type": "client",
