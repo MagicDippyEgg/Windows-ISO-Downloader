@@ -18,12 +18,12 @@
 	  "notes": "This build of Windows only works on x64"
     },
     {
-      "version": "Windows 10 Enterprise LTSC 2019 x64",
+      "version": "Windows 10 Enterprise 2019 LTSC x64",
 	  "type": "client",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows10EnterpriseLTSC2019_x64.iso"
     },
     {
-      "version": "Windows 10 Enterprise LTSC 2019 x32",
+      "version": "Windows 10 Enterprise 2019 LTSC x32",
 	  "type": "client",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows10EnterpriseLTSC2019_x32.iso"
     },
@@ -34,22 +34,22 @@
 	  "notes": "This build of Windows only works on x64"
     },
     {
-      "version": "Windows 10 Enterprise LTSB 2016 x64",
+      "version": "Windows 10 Enterprise 2016 LTSB x64",
 	  "type": "client",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows10EnterpriseLTSB2016_x64.iso"
     },
     {
-      "version": "Windows 10 Enterprise LTSB 2016 x32",
+      "version": "Windows 10 Enterprise 2016 LTSB x32",
 	  "type": "client",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows10EnterpriseLTSB2016_x32.iso"
     },
     {
-      "version": "Windows 10 Enterprise LTSB 2015 x64",
+      "version": "Windows 10 Enterprise 2015 LTSB x64",
 	  "type": "client",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows10EnterpriseLTSB2015_x64.iso"
     },
     {
-      "version": "Windows 10 Enterprise LTSB 2015 x32",
+      "version": "Windows 10 Enterprise 2015 LTSB x32",
 	  "type": "client",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows10EnterpriseLTSB2015_x32.iso"
     },
