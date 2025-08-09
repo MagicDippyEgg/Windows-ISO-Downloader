@@ -12,6 +12,16 @@
 	  "notes": "This build of Windows only works on x64"
     },
     {
+      "version": "Windows 10 Enterprise 2021 LTSC x64",
+	  "type": "client",
+      "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows10EnterpriseLTSC2021_x64.iso"
+    },
+    {
+      "version": "Windows 10 Enterprise 2021 LTSC x32",
+	  "type": "client",
+      "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows10EnterpriseLTSC2021_x32.iso"
+    },
+    {
       "version": "Windows Server 2019",
 	  "type": "server",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsServer2019.iso",
