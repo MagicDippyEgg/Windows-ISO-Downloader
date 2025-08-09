@@ -1,6 +1,12 @@
 {
   "versions": [
      {
+      "version": "Windows Server 2025",
+	  "type": "server",
+      "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsServer2025.iso",
+	  "notes": "This build of Windows only works on x64"
+    },
+     {
       "version": "Windows 11 Enterprise 2024 LTSC",
 	  "type": "client",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows11EnterpriseLTSC2024.iso"
