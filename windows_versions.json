@@ -81,6 +81,11 @@
       "notes": "This ISO contains both x64 and x32"
     },
     {
+      "version": "Windows 10 Arm64",
+	  "type": "client",
+      "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows10_Arm64.iso"
+    },
+    {
       "version": "Windows 10 x64",
 	  "type": "client",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows10_x64.iso"
