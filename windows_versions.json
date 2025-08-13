@@ -170,6 +170,12 @@
       "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsVista_x32.iso"
     },
     {
+      "version": "Windows Longhorn",
+	  "type": "client",
+      "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsLonghorn.iso",
+	  "notes": "Specificity build 4008 Milestone 4"
+    },
+    {
       "version": "Windows Server 2003 R2 x64",
 	  "type": "server",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsServer2003R2_x64.iso",
