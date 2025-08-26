@@ -203,6 +203,11 @@
       "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsServer2003_x32.iso"
     },
     {
+      "version": "Windows Fundamentals for Legacy PCs",
+	  "type": "client",
+      "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsFLP.iso"
+    },
+    {
       "version": "Windows XP x64",
 	  "type": "client",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsXP_x64.iso"
