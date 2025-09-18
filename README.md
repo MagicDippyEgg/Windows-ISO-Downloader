@@ -49,7 +49,7 @@
 | Windows NT Server 3.5 | ❌ |
 | Windows NT Server 3.51 | ❌ |
 | Windows NT Server 4.0 | ❌ |
-| Windows Server 2000 | ❌ |
+| Windows Server 2000 | ✅ |
 | Windows Server 2003 | ✅ |
 | Windows Server 2003 R2 | ✅ |
 | Windows Server 2008 | ✅ |
