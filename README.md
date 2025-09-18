@@ -14,7 +14,7 @@
 | Windows 3.0 | ✅ |
 | Windows 3.1 | ✅ |
 | Windows 3.2 (China-only) | ✅ |
-| Windows NT 3.1 | ❌ |
+| Windows NT 3.1 | ✅ |
 | Windows NT 3.5 | ✅ |
 | Windows NT 3.51 | ✅ |
 | Windows 95 | ✅ |
