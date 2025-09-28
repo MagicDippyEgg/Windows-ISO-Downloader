@@ -36,7 +36,7 @@
 | Windows 10 Enterprise 2016 LTSB | ✅ |
 | Windows 10 Enterprise 2019 LTSC | ✅ |
 | Windows 10 Enterprise 2021 LTSC | ✅ |
-| Windows 11 | ✅ |
+| Windows 11 (x64/ARM)| ✅ |
 | Windows 11 Enterprise 2024 LTSC | ✅ |
 
 ***
