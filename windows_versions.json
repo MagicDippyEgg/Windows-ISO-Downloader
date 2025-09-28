@@ -11,6 +11,11 @@
       "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows11EnterpriseLTSC2024.iso"
     },
     {
+      "version": "Windows 11 ARM64",
+	  "type": "client",
+      "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows11_Arm64.iso"
+    },
+    {
       "version": "Windows 11",
 	  "type": "client",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows11.iso"
@@ -80,7 +85,7 @@
       "notes": "This ISO contains both x64 and x32"
     },
     {
-      "version": "Windows 10 Arm64",
+      "version": "Windows 10 ARM64",
 	  "type": "client",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows10_Arm64.iso"
     },
