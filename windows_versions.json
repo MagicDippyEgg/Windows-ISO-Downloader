@@ -247,6 +247,11 @@
       "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows98FE.iso"
     },
     {
+      "version": "Windows NT Server 4.0",
+	  "type": "server",
+      "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsNTServer_4.0.iso"
+    },
+    {
       "version": "Windows NT 4.0",
 	  "type": "client",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsNT4.0.iso"
