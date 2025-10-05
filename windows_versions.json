@@ -262,6 +262,11 @@
       "download_url": "https://archive.org/download/WindowsVersionsArchive/Windows95.iso"
     },
     {
+      "version": "Windows NT Server 3.51",
+	  "type": "server",
+      "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsNTServer_3.51.iso"
+    },
+    {
       "version": "Windows NT 3.51",
 	  "type": "client",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsNT3.51.iso"
