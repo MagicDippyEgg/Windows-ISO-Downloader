@@ -272,6 +272,11 @@
       "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsNT3.51.iso"
     },
     {
+      "version": "Windows NT Server 3.5",
+	  "type": "server",
+      "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsNTServer_3.5.iso"
+    },
+    {
       "version": "Windows NT 3.5",
 	  "type": "client",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsNT3.5.iso"
