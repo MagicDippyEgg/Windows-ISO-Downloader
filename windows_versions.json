@@ -288,6 +288,11 @@
 	  "notes": "This version of Windows is exclusive to the Chinese Market"
     },
     {
+      "version": "Windows NT Advanced Server 3.1",
+	  "type": "server",
+      "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsNTAdvancedServer_3.1.iso"
+    },
+    {
       "version": "Windows NT 3.1",
 	  "type": "client",
       "download_url": "https://archive.org/download/WindowsVersionsArchive/WindowsNT3.1.iso"
