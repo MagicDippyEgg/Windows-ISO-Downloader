@@ -1,0 +1,21 @@
+name: Sync to Personal Gitea
+
+on:
+  push:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Push to Personal Gitea
+        env:
+          GITEA_PAT: ${{ secrets.GITEA_PAT_PERSONAL }}
+        run: |
+          git remote add gitea http://MagicDippyEgg:${GITEA_PAT}@168.138.4.212:3000/MagicDippyEgg//Windows-ISO-Downloader.git
+          git push --mirror gitea
